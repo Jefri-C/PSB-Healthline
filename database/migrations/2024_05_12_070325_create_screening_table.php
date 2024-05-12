@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('screening', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('apoointment_id');
+            $table->unsignedBigInteger('appointment_id');
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('doctor_id');
             $table->string('summary');
