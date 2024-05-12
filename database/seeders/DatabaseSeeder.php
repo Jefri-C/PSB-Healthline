@@ -21,10 +21,9 @@ class DatabaseSeeder extends Seeder
 //            'email' => 'test@example.com',
 //        ]);
 
-
-        $roles = [
-            'sa','admin','doctor',
-        ];
-        foreach ($roles as $role) Bouncer::create()->role()->findOrCreateRoles($role);
+        $this->call([
+            SpecialitySeeder::class,
+            RoleSeeder::class
+        ]);
     }
 }
