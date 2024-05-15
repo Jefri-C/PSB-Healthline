@@ -38,6 +38,12 @@
                                 </span>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
+                            <a class="sidebar-link {{ request()->routeIs('specialities') ? 'active' : '' }}" href="{{ route('specialities')}}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-asterisk"></i>
+                                </span>
+                                <span class="hide-menu">Specialities</span>
+                            </a>
                             <a class="sidebar-link {{ request()->routeIs('doctor') ? 'active' : '' }}" href="{{ route('doctor')}}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-stethoscope"></i>
