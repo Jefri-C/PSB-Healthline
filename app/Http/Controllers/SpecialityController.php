@@ -16,16 +16,18 @@ class SpecialityController extends Controller
 
     public function add(Request $request)
     {
+        dd($request);
         $validatedData = $request->validate([
             'name' => 'string|required'
         ]);
 
         Speciality::create($validatedData);
 
-        return response()->json([
-            'message' => 'Speciality was successfully created',
-            'success' => 1,
-        ]);
+        return redirect()->route('specialities')
+            ->with([
+                'message' => 'Speciality was successfully created',
+                'success' => 1,
+            ]);
     }
 
 
@@ -38,10 +40,11 @@ class SpecialityController extends Controller
         Speciality::where('id', $id)
             ->update($validatedData);
 
-        return response()->json([
-            'message' => 'Speciality was successfully updated',
-            'success' => 1,
-        ]);
+        return redirect()->route('specialities')
+            ->with([
+                'message' => 'Speciality was successfully updated',
+                'success' => 1,
+            ]);
     }
 
     public function delete (Request $request, $id)
@@ -49,9 +52,12 @@ class SpecialityController extends Controller
         Speciality::findOrFail($id)
             ->delete();
 
-        return response()->json([
-            'message' => 'Speciality was successfully deleted',
-            'success' => 1,
-        ]);
+
+
+        return redirect()->route('specialities')
+            ->with([
+                'message' => 'Speciality was successfully deleted',
+                'success' => 1,
+            ]);
     }
 }

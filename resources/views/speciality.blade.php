@@ -4,7 +4,41 @@
 <div class="container-fluid">
     <div class="card w-100">
         <div class="card-body p-4">
-            <h5 class="card-title fw-semibold mb-4">Specialities</h5>
+            <div class="row align-items-center mb-3">
+                <div class="col-md-4">
+                    <h5 class="card-title fw-semibold mb-4">Specialities</h5>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addDoctorModal"><i class="ti ti-plus"></i> Add Speciality</button>
+                </div>
+
+                <!-- Add Doctor Form-->
+                <div class="modal fade" id="addDoctorModal" tabindex="-1" aria-labelledby="addDoctorModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addDoctorModalLabel">Add Doctor</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="{{ route('specialities.add') }}">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" name="name">
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Modal Footer -->
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button> -->
+                                <button type="button" class="btn btn-outline-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
